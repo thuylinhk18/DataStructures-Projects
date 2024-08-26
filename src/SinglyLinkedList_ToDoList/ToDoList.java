@@ -187,3 +187,20 @@ public class ToDoList {
         }
     }
 
+    //Method to count the number of uncompleted tasks in the list
+    public int countNumOfUncompletedTasks() {
+        int count = 0;
+        Node current = head;
+        if (isEmpty()) {
+            return 0;
+        } else {
+            while (current != null) {
+                if (!current.state.equals("Completed")) {
+                    count++;
+                }
+                current = current.next;
+            }
+        }
+        return count;
+    }
+
