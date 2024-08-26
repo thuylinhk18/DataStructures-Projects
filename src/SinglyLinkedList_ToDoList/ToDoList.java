@@ -143,3 +143,13 @@ public class ToDoList {
         }
 
     }
+    //Method to count the number of tasks in the to-do list
+    public int countNumOfTasks() {
+        int count = 0;
+        Node current = head;
+        while (current != null) {
+            count++;
+            current = current.next;
+        }
+        return count;
+    }
