@@ -74,3 +74,24 @@ public class ToDoList {
         displayTheList();
     }
 
+    //Method to add task at the end 
+    public void addTaskAtTheEnd(String taskName) {
+        //If the list is empty
+        if (isEmpty()) {
+            addTaskAtTheBeginning(taskName);
+            System.out.println("Add the task at the end successfully!");
+        } else if (checkTaskExisted(taskName)) {
+            System.out.println("The task has already been in the list!");
+        } else {
+            Node nodeToAdd = new Node(taskName);
+            Node current = head;
+            //After the loop, current is the last node
+            while (current.next != null) {
+                current = current.next;
+            }
+            // Add the nodeToAdd node at the end of the list
+            current.next = nodeToAdd;
+            System.out.println("Add the task at the end successfully!");
+        }
+        displayTheList();
+    }
