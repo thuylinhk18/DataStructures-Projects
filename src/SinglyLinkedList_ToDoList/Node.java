@@ -9,15 +9,19 @@ public class Node {
    String data;
    //Reference to the next node in the sequence
    Node next;
+   String state;
 
    //Constructor to initialize node with data
     public Node() {
     }
+
     public Node(String data) {
         this.data = data;
         this.next = null;
+        this.state = "To do";
     }
-//Getters and setters for data and next reference
+    
+
     public String getData() {
         return data;
     }
@@ -33,6 +37,15 @@ public class Node {
     public void setNext(Node next) {
         this.next = next;
     }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+    
 
    
 }

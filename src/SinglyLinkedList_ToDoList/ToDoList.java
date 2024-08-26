@@ -13,6 +13,7 @@ public class ToDoList {
 
     private Node head; //head of the linked list
 
+    // Method to check the linked list is empty
     public boolean isEmpty() {
         if (head == null) {
             return true;
@@ -21,6 +22,7 @@ public class ToDoList {
         }
     }
 
+    // Method to check the linked list has only one node
     public boolean hasOnlyOneNode() {
         // The first way
         //        if (!isEmpty() && (head.next == null)) {
@@ -152,6 +154,7 @@ public class ToDoList {
             current = current.next;
         }
         return count;
+    }
     //Method to count the number of the tasks that has been completed
     public int countNumOfCompletedTasks() {
         int count = 0;
@@ -221,3 +224,20 @@ public class ToDoList {
             }
         }
     }
+    //list the task to do
+    // list the task is completed
+
+    // Mark a task as completed
+//    public void markTaskAsCompleted(String task) {
+//        Node current = head;
+//        while (current != null) {
+//            if (current.task.equals(task)) {
+//                current.completed = true;
+//                System.out.println("Task marked as completed: " + task);
+//                return;
+//            }
+//            current = current.next;
+//        }
+//        System.out.println("Task not found: " + task);
+//    }
+}
