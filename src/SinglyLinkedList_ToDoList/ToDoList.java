@@ -152,4 +152,19 @@ public class ToDoList {
             current = current.next;
         }
         return count;
+    //Method to count the number of the tasks that has been completed
+    public int countNumOfCompletedTasks() {
+        int count = 0;
+        Node current = head;
+        if (isEmpty()) {
+            return 0;
+        } else {
+            while (current != null) {
+                if (current.state.equals("Completed")) {
+                    count++;
+                }
+                current = current.next;
+            }
+        }
+        return count;
     }
