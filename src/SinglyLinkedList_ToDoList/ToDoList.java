@@ -43,3 +43,20 @@ public class ToDoList {
         }
         return false;
     }
+
+    //Method to display the to-do list
+    public void displayTheList() {
+        Node current = head;
+        if (isEmpty()) {
+            System.out.println("The list is empty!");
+        } else {
+            System.out.println("To do list: ");
+            int i = 1;
+            while (current != null) {
+                System.out.println(i + ". " + current.data + "   " + current.state);
+                i++;
+                current = current.next;
+            }
+        }
+    }
+
