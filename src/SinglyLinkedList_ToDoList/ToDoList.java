@@ -95,3 +95,28 @@ public class ToDoList {
         }
         displayTheList();
     }
+    //Method to remove task in the list
+    public void removeTask(String taskName) {
+        // Check if the list is empty
+        if (isEmpty()) {
+            System.out.println("The to-do list is empty, nothing to remove");
+        } //Check if the task to remove is the head node
+        else if (head.data.equalsIgnoreCase(taskName)) {
+            head = head.next;
+            System.out.println("Task was removed successfully!");
+        } else {
+            Node current = head;
+            //After the loop, the current is the previous node of nodeToRemove node
+            while (current.next != null && !current.next.data.equalsIgnoreCase(taskName)) {
+                current = current.next;
+            }
+            // Check if the task was not found
+            if (current.next == null) {
+                System.out.println("The task was not found!");
+            } else {
+                current.next = current.next.next;
+                System.out.println("Task was removed successfully!");
+            }
+        }
+        displayTheList();
+    }
