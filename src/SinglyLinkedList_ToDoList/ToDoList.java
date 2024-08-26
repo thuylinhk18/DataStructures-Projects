@@ -31,6 +31,15 @@ public class ToDoList {
         // The second way
         return !isEmpty() && head.next == null;
     }
-}
 
-   
+    //Method to check duplicate
+    public boolean checkTaskExisted(String taskName) {
+        Node current = head;
+        while (current != null) {
+            if (current.data.equalsIgnoreCase(taskName)) {
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
+    }
