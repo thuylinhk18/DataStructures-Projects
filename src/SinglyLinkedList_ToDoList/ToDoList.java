@@ -60,3 +60,17 @@ public class ToDoList {
         }
     }
 
+    //Method to add task at the beginning
+    public void addTaskAtTheBeginning(String taskName) {
+        Node nodeToAdd = new Node(taskName);
+        //Check if the task is existed
+        if (checkTaskExisted(taskName)) {
+            System.out.println("The task has already been in the list!");
+        } else {
+            nodeToAdd.next = head;
+            head = nodeToAdd;
+            System.out.println("Add the task at the beginning successfully!");
+        }
+        displayTheList();
+    }
+
