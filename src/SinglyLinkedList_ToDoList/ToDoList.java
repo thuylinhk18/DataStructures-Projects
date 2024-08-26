@@ -120,3 +120,26 @@ public class ToDoList {
         }
         displayTheList();
     }
+    // Method to change state of the task to completed
+    public void changeState(Node nodeToChangeState) {
+        nodeToChangeState.setState("Completed");
+    }
+
+    public void markAsCompleted(String taskName) {
+        if (isEmpty()) {
+            System.out.println("The to-do list is empty!");
+        } else {
+            Node current = head;
+            while (current != null && !current.data.equalsIgnoreCase(taskName)) {
+                current = current.next;
+            }
+            if (current == null) {
+                System.out.println("The task was not found!");
+            } else {
+                changeState(current);
+                System.out.println(taskName + " has been marked as completed!");
+                displayTheList();
+            }
+        }
+
+    }
