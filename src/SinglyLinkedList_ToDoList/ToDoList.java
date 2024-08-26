@@ -168,3 +168,22 @@ public class ToDoList {
         }
         return count;
     }
+    
+    //Method to display completed tasks in the list
+    public void displayCompletedTasks() {
+        Node current = head;
+        if (isEmpty()) {
+            System.out.println("No tasks in the list");
+        } else if (countNumOfCompletedTasks() == 0) {
+            System.out.println("No completed tasks");
+        } else {
+            System.out.println("The Completed Tasks List:");
+            while (current != null) {
+                if (current.state.equals("Completed")) {
+                    System.out.println(current.data);
+                }
+                current = current.next;
+            }
+        }
+    }
+
