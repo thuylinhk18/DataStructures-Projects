@@ -63,7 +63,7 @@ public class BookCatalog {
         } else if (checkBookExisted(bookName)) {
             System.out.println("The book has already been in the list!");
         } else {
-            Node bookToAdd = new Node(IBSN, author, IBSN);
+            Node bookToAdd = new Node(bookName, author, IBSN);
             Node current = head;
             //After the loop, current is the last node
             while (current.next != null) {
@@ -81,7 +81,7 @@ public class BookCatalog {
         // Check if the list is empty
         if (isEmpty()) {
             System.out.println("The catalog is empty, nothing to remove");
-        } //Check if the task to remove is the head node
+        } //Check if the book to remove is the head node
         else if (head.title.equalsIgnoreCase(bookName)) {
             head = head.next;
             System.out.println("Book was removed successfully!");
