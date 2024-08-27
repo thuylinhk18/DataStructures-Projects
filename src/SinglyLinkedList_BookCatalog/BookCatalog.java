@@ -101,4 +101,21 @@ public class BookCatalog {
         }
         displayCatalog();
     }
+
+    public void searchBookByName(String bookName) {
+        if (isEmpty()) {
+            System.out.println("The catalog is empty");
+        } else {
+            Node current = head;
+            while (current != null && !current.title.equalsIgnoreCase(bookName)) {
+                current = current.next;
+            }
+            if (current == null) {
+                System.out.println("No book was found!");
+            } else {
+                System.out.printf("%-30s %-20s %-15s%n", "Title", "Author", "ISBN");
+                System.out.printf("%-30s %-20s %-15s%n", current.title, current.author, current.ISBN);
+            }
+        }
+    }
 }
