@@ -22,7 +22,7 @@ public class Test {
             System.out.println("\nMenu:");
             System.out.println("1. Add Book");
             System.out.println("2. Remove Book");
-            System.out.println("3. Search For Book");
+            System.out.println("3. Search For Book By Title");
             System.out.println("4. Display Catatog");
             System.out.println("0. Exit");
             System.out.print("Enter your choice: ");
@@ -50,6 +50,9 @@ public class Test {
                     bookCatalog.removeBook(bookToRemove);
                     break;
                 case 3:
+                    System.out.print("Enter book name: ");
+                    String bookToSearch = scanner.nextLine();
+                    bookCatalog.searchBookByName(bookToSearch);
                     break;
                 case 4:
                     bookCatalog.displayCatalog();
