@@ -159,4 +159,22 @@ public class BookCatalog {
             current = current.next;
         }
     }
+    public void searchBookByAuthor(String author){
+        if(isEmpty()){
+            System.out.println("The catalog is empty!");
+            return;
+        }
+        Node current = head;
+        System.out.println("Books was found: ");
+        System.out.printf("%-5s %-30s %-20s %-15s%n", "No.", "Title", "Author", "ISBN");
+        int i = 1;
+        while (current != null) {
+            if (current.author.contains(author)) {
+                System.out.printf("%-5d %-30s %-20s %-15s%n", i, current.title, current.author, current.ISBN);
+                i++;
+            }
+            current = current.next;
+        }
+    }
 }
+
