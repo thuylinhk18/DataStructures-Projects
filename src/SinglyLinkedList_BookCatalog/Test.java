@@ -36,18 +36,44 @@ public class Test {
             }
             switch (choice) {
                 case 1:
-                    System.out.print("Enter the title: ");
-                    String bookTitle = scanner.nextLine().trim();  // Trim to remove any leading or trailing spaces
-                    System.out.print("Enter the author: ");
-                    String bookAuthor = scanner.nextLine().trim(); // Trim to remove any leading or trailing spaces
-                    boolean isISBNValid;
-                    String bookISBN;
+                    boolean isNullOrBlank;
+                    String bookTitle,
+                     bookAuthor,
+                     bookISBN;
+                    
+                    //Enter the title
+                    do {
+                        System.out.print("Enter the title: ");
+                        bookTitle = scanner.nextLine().trim();  // Trim to remove any leading or trailing spaces
+                        isNullOrBlank = bookCatalog.isNullOrBlank(bookTitle);
+                        if (isNullOrBlank) {
+                            System.out.println("Book Title can not be null or blank. Please enter a valid title!");
+                        }
+                    } while (isNullOrBlank);
+                    
+                    //Enter the author
+                    do {
+                        System.out.print("Enter the author: ");
+                        bookAuthor = scanner.nextLine().trim(); // Trim to remove any leading or trailing spaces
+                        isNullOrBlank = bookCatalog.isNullOrBlank(bookAuthor);
+                        if (isNullOrBlank) {
+                            System.out.println("Book Author can not be null or blank. Please enter a valid book author!");
+                        }
+                    } while (isNullOrBlank);
+                    
+                    //Enter the the ISBN
+                    boolean isISBNValid = false;
                     // Loop to validate ISBN format
                     do {
                         System.out.print("Enter ISBN: ");
                         bookISBN = scanner.nextLine().trim(); // Trim to remove any leading or trailing spaces
+                        if (bookCatalog.isNullOrBlank(bookISBN)) {
+                            System.out.println("ISBN can not be null!");
+                            continue;
+                        }
                         isISBNValid = bookCatalog.checkISBNFormat(bookISBN);
                         if (!isISBNValid) {
+                            System.out.println("ISBN must have 10 or 13 digits and all characters must be digits!");
                             System.out.println("Please enter a valid ISBN!");
                         }
                     } while (!isISBNValid);
