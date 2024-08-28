@@ -23,7 +23,8 @@ public class Test {
             System.out.println("1. Add Book");
             System.out.println("2. Remove Book");
             System.out.println("3. Search For Book By Title");
-            System.out.println("4. Display Catatog");
+            System.out.println("4. Search For Book By Author");
+            System.out.println("5. Display Catatog");
             System.out.println("0. Exit");
             System.out.print("Enter your choice: ");
 
@@ -91,6 +92,11 @@ public class Test {
                     bookCatalog.searchBookByName(bookToSearch);
                     break;
                 case 4:
+                    System.out.print("Enter author name: ");
+                    String authorName = scanner.nextLine();
+                    bookCatalog.searchBookByAuthor(authorName);
+                    break;
+                case 5:
                     bookCatalog.displayCatalog();
                     break;
                 case 0:
