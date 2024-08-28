@@ -142,18 +142,21 @@ public class BookCatalog {
 
     public void searchBookByName(String bookName) {
         if (isEmpty()) {
-            System.out.println("The catalog is empty");
-        } else {
-            Node current = head;
-            while (current != null && !current.title.equalsIgnoreCase(bookName)) {
-                current = current.next;
+            System.out.println("The catalog is empty!");
+            return;
+        }
+        Node current = head;
+        System.out.println("Books was found: ");
+        System.out.printf("%-5s %-30s %-20s %-15s%n", "No.", "Title", "Author", "ISBN");
+        int i = 1;
+        while (current != null) {
+            //If we use 'while (current != null && current.title.contains(bookName))'
+            // This condition stops iterating through the list whenever node's title does not contain bookName
+            if (current.title.contains(bookName)) {
+                System.out.printf("%-5d %-30s %-20s %-15s%n", i, current.title, current.author, current.ISBN);
+                i++;
             }
-            if (current == null) {
-                System.out.println("No book was found!");
-            } else {
-                System.out.printf("%-30s %-20s %-15s%n", "Title", "Author", "ISBN");
-                System.out.printf("%-30s %-20s %-15s%n", current.title, current.author, current.ISBN);
-            }
+            current = current.next;
         }
     }
 }
