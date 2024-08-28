@@ -80,10 +80,10 @@ public class BookCatalog {
     public void addBook(String bookName, String author, String IBSN) {
         //If the list is empty
         if (isEmpty()) {
-            Node bookToAdd = new Node(IBSN, author, IBSN);
+            Node bookToAdd = new Node(bookName, author, IBSN);
             head = bookToAdd;
             System.out.println("Add book successfully!");
-        } else if (checkBookExisted(bookName)) {
+        } else if (checkBookExisted(bookName, author, IBSN)) {
             System.out.println("The book has already been in the list!");
         } else {
             Node bookToAdd = new Node(bookName, author, IBSN);
