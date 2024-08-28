@@ -48,10 +48,12 @@ public class BookCatalog {
     }
 
     //Method to check duplicate
-    public boolean checkBookExisted(String bookName) {
+    public boolean checkBookExisted(String bookName, String author, String ISBN) {
         Node current = head;
         while (current != null) {
-            if (current.title.equalsIgnoreCase(bookName)) {
+            if ((!isNullOrBlank(current.title) && current.title.equalsIgnoreCase(bookName))
+                    && (!isNullOrBlank(current.author) && current.author.equalsIgnoreCase(author))
+                    && (!isNullOrBlank(current.ISBN) && current.ISBN.equalsIgnoreCase(ISBN))) {
                 return true;
             }
             current = current.next;
