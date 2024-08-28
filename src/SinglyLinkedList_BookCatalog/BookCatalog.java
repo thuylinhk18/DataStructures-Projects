@@ -46,6 +46,18 @@ public class BookCatalog {
         }
         return true;
     }
+    
+    //Method to check unique ISBN
+    public boolean doesISBNExist(String ISBN) {
+        Node current = head;
+        while (current != null) {
+            if (current.ISBN.equals(ISBN)) {
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
+    }
 
     //Method to check duplicate
     public boolean checkBookExisted(String bookName, String author, String ISBN) {
