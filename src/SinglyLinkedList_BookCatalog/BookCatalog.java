@@ -59,13 +59,14 @@ public class BookCatalog {
         return false;
     }
 
-    //Method to check duplicate
-    public boolean checkBookExisted(String bookName, String author, String ISBN) {
+    //Method to check duplicate.
+    //We do not need to check ISBN because it is unique. 
+    //Books can not have the same titltes and author but different ISBN.
+    public boolean checkBookExisted(String bookName, String author) {
         Node current = head;
         while (current != null) {
             if ((!isNullOrBlank(current.title) && current.title.equalsIgnoreCase(bookName))
-                    && (!isNullOrBlank(current.author) && current.author.equalsIgnoreCase(author))
-                    && (!isNullOrBlank(current.ISBN) && current.ISBN.equalsIgnoreCase(ISBN))) {
+                    && (!isNullOrBlank(current.author) && current.author.equalsIgnoreCase(author))) {
                 return true;
             }
             current = current.next;
