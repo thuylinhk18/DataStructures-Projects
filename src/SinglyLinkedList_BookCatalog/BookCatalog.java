@@ -26,6 +26,10 @@ public class BookCatalog {
         return !isEmpty() && head.next == null;
     }
 
+    public boolean isNullOrBlank(String dataToCheckNull) {
+        return dataToCheckNull == null || dataToCheckNull.isBlank();
+    }
+
     //Method to check format ISBN
     public boolean checkISBNFormat(String ISBN) {
         char[] toCharArray = ISBN.toCharArray();
