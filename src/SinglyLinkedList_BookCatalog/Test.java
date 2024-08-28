@@ -40,7 +40,7 @@ public class Test {
                     String bookTitle,
                      bookAuthor,
                      bookISBN;
-                    
+
                     //Enter the title
                     do {
                         System.out.print("Enter the title: ");
@@ -50,7 +50,7 @@ public class Test {
                             System.out.println("Book Title can not be null or blank. Please enter a valid title!");
                         }
                     } while (isNullOrBlank);
-                    
+
                     //Enter the author
                     do {
                         System.out.print("Enter the author: ");
@@ -60,7 +60,7 @@ public class Test {
                             System.out.println("Book Author can not be null or blank. Please enter a valid book author!");
                         }
                     } while (isNullOrBlank);
-                    
+
                     //Enter the the ISBN
                     boolean isISBNValid = false;
                     // Loop to validate ISBN format
@@ -71,6 +71,11 @@ public class Test {
                             System.out.println("ISBN can not be null!");
                             continue;
                         }
+                        if (bookCatalog.doesISBNExist(bookISBN)) {
+                            System.out.println("ISBN already exists in the catalog. ISBN must be unique, please enter a different ISBN!");
+                            continue;
+                        }
+
                         isISBNValid = bookCatalog.checkISBNFormat(bookISBN);
                         if (!isISBNValid) {
                             System.out.println("ISBN must have 10 or 13 digits and all characters must be digits!");
