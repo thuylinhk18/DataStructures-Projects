@@ -26,6 +26,25 @@ public class BookCatalog {
         return !isEmpty() && head.next == null;
     }
 
+    //Method to check format ISBN
+    public boolean checkISBNFormat(String ISBN) {
+        char[] toCharArray = ISBN.toCharArray();
+
+        // Check if the length of ISBN is either 10 or 13
+        if (toCharArray.length != 13 && toCharArray.length != 10) {
+            System.out.println("ISBN must have 10 or 13 digits!");
+            return false;
+        }
+        // Check if all characters are digits
+        for (char c : toCharArray) {
+            if (!Character.isDigit(c)) {
+                System.out.println("ISBN's characters must be digits!");
+                return false;
+            }
+        }
+        return true;
+    }
+
     //Method to check duplicate
     public boolean checkBookExisted(String bookName) {
         Node current = head;
