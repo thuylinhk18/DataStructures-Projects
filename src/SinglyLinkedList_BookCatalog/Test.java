@@ -37,11 +37,21 @@ public class Test {
             switch (choice) {
                 case 1:
                     System.out.print("Enter the title: ");
-                    String bookTitle = scanner.nextLine();
+                    String bookTitle = scanner.nextLine().trim();  // Trim to remove any leading or trailing spaces
                     System.out.print("Enter the author: ");
-                    String bookAuthor = scanner.nextLine();
-                    System.out.print("Enter ISBN: ");
-                    String bookISBN = scanner.nextLine();
+                    String bookAuthor = scanner.nextLine().trim(); // Trim to remove any leading or trailing spaces
+                    boolean isISBNValid;
+                    String bookISBN;
+                    // Loop to validate ISBN format
+                    do {
+                        System.out.print("Enter ISBN: ");
+                        bookISBN = scanner.nextLine().trim(); // Trim to remove any leading or trailing spaces
+                        isISBNValid = bookCatalog.checkISBNFormat(bookISBN);
+                        if (!isISBNValid) {
+                            System.out.println("Please enter a valid ISBN!");
+                        }
+                    } while (!isISBNValid);
+                    // Add book to catalog after valid inputs
                     bookCatalog.addBook(bookTitle, bookAuthor, bookISBN);
                     break;
                 case 2:
