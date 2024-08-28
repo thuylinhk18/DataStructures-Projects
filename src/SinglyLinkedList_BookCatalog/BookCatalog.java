@@ -96,7 +96,9 @@ public class BookCatalog {
             Node bookToAdd = new Node(bookName, author, IBSN);
             head = bookToAdd;
             System.out.println("Add book successfully!");
-        } else if (checkBookExisted(bookName, author, IBSN)) {
+        } else if (doesISBNExist(IBSN)) {
+            System.out.println("ISBN already exists in the catalog. ISBN must be unique, please enter a different ISBN!");
+        } else if (checkBookExisted(bookName, author)) {
             System.out.println("The book has already been in the list!");
         } else {
             Node bookToAdd = new Node(bookName, author, IBSN);
