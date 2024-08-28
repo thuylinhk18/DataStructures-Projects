@@ -71,11 +71,6 @@ public class Test {
                             System.out.println("ISBN can not be null!");
                             continue;
                         }
-                        if (bookCatalog.doesISBNExist(bookISBN)) {
-                            System.out.println("ISBN already exists in the catalog. ISBN must be unique, please enter a different ISBN!");
-                            continue;
-                        }
-
                         isISBNValid = bookCatalog.checkISBNFormat(bookISBN);
                         if (!isISBNValid) {
                             System.out.println("ISBN must have 10 or 13 digits and all characters must be digits!");
